@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styletransaction.css') }}"
+    />
+    <title>Visão Geral</title>
+    <style>
+      /* Estilos para o cabeçalho */
+      header {
+        background-color: #9e907b;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      /* Estilos para os links do cabeçalho */
+      header a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 100px;
+      }
+
+      /* Estilos para os links ativos */
+      header a.active {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="elemento-centralizado">
+          <a href="/transactions" class="active"
+            ><img
+              src="{{ url_for('static', filename='image.jpg') }}"
+              width="70"
+              height="50"
+              class="logo"
+          /></a>
+          <a href="/transactions">Visão Geral</a>
+          <a href="/add_transaction">Lançamentos</a>
+          <a href="relatorios">Relatórios</a>
+          <a href="/">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <h1>Visão Geral</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for transaction in transactions %}
+        <tr>
+          <td>{{ transaction.data }}</td>
+          <td>{{ transaction.descricao }}</td>
+          <td>R$ {{ transaction.valor }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Formulário para o botão "Adicionar Transação" -->
+    <form action="{{ url_for('add_transaction') }}" method="GET">
+      <button type="submit">Adicionar Transação</button>
+    </form>
+  </body>
+</html>

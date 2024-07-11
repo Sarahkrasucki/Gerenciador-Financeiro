@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      body {
+        background-image: url("{{ url_for("static", filename="background.jpg") }}");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <img
+        src="{{ url_for('static', filename='logo.jpg') }}"
+        width="300"
+        height="150"
+        class="logo"
+      />
+      <h1>Acessar o sistema</h1>
+      <form method="POST" action="/login">
+        <input type="text" name="username" placeholder="Username" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %}
+        <div class="flash-messages">
+          {% for category, message in messages %}
+          <div class="alert alert-{{ category }} flash-message">
+            {{ message }}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %} {% endwith %}
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

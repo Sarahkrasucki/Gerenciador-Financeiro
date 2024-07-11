@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('static\background.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+}
+
+.login-container {
+    width: 500px;
+    height: 700px;
+    position: absolute;
+    top: 29%; /* Centraliza verticalmente no meio da página */
+    left: 19%; /* Centraliza horizontalmente no meio da página */
+    transform: translate(-50%, -50%);
+    margin: 100px auto;
+    padding: 15px;
+    background-color: #9E907B;
+    border-radius: 0px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+.logo {
+    position: relative;
+}
+
+.logo-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: white; /* Cor do texto */
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+form input {
+    width: 90%;
+    padding: 20px;
+    margin-top: 10px; /* Adicione uma margem superior para afastar do topo */
+    margin-bottom: 13px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
+
+.flash-message {
+    color: white;
+    margin-top: 20px
+}
+
+form button {
+    font-size: 18px;
+    width: 90%;
+    padding: 20px;
+    background-color: #D7DBD5;
+    color: #34251C;
+    border: none;
+    margin-top: 10px; /* Adicione uma margem superior para afastar do topo */
+    border-radius: 50px;
+    cursor: pointer;
+    /* Estilização do botão */
+button[type="submit"] {
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 30px; /* Aumenta o tamanho da fonte */
+    padding: 10px 20px; /* Ajusta o padding para criar mais espaço ao redor do texto */
+}
+
+}
+
+form button:hover {
+    background-color: #9E907B;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lançamentos</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styletransaction.css') }}"
+    />
+    <style>
+      /* Estilos para o cabeçalho */
+      header {
+        background-color: #9e907b;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      /* Estilos para os links do cabeçalho */
+      header a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 100px;
+      }
+
+      /* Estilos para os links ativos */
+      header a.active {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="elemento-centralizado">
+          <a href="/transactions" class="active"
+            ><img
+              src="{{ url_for('static', filename='image.jpg') }}"
+              width="70"
+              height="50"
+              class="logo"
+          /></a>
+          <a href="/transactions">Visão Geral</a>
+          <a href="/add_transaction">Lançamentos</a>
+          <a href="relatorios">Relatórios</a>
+          <a href="/">Sair</a>
+        </div>
+      </div>
+    </header>
+    <h1>Adicionar Transação</h1>
+
+    <form method="POST" action="{{ url_for('add_transaction') }}">
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required /><br /><br />
+
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" required /><br /><br />
+
+      <label for="valor">Valor:</label>
+      <input
+        type="number"
+        id="valor"
+        name="valor"
+        step="0.01"
+        required
+      /><br /><br />
+
+      <button type="submit">Registrar Transação</button>
+    </form>
+
+    <a href="{{ url_for('transactions') }}">Voltar para Transações</a>
+  </body>
+</html>
